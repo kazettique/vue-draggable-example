@@ -23,7 +23,5 @@ export default {
   cursor: grab;
   background: #ffffff;
   padding: 10px;
-  transition: transform 0.25s cubic-bezier(0.02, 1.01, 0.94, 1.01);
-  will-change: transform;
 }
 </style>

@@ -11,5 +11,6 @@ export const TASK_STATUS_NAME = {
 };
 
 export const GROUP_TYPE = {
-  TASK: "task"
+  TASK: "task",
+  COLUMN: "column"
 };
