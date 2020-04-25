@@ -1,11 +1,14 @@
 {
+  "homepage": "http://kazettique.github.io/vue-draggable-example",
   "name": "vue-draggable-example",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "core-js": "^3.6.4",
@@ -22,6 +25,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^6.2.2",
+    "gh-pages": "^2.2.0",
     "node-sass": "^4.12.0",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
