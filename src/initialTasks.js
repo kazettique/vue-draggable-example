@@ -1,6 +1,7 @@
 const initialTaskLists = [
   [
     { id: 100, content: "Code Refinement" },
+    { id: 101, content: "Daily" },
     { id: 102, content: "Study Vue" },
     { id: 103, content: "Add RWD" }
   ],
@@ -13,6 +14,7 @@ const initialTaskLists = [
 
 const taskList = [
   { id: 100, content: "Code Refinement" },
+  { id: 101, content: "Daily" },
   { id: 102, content: "Study Vue" },
   { id: 103, content: "Add RWD" },
   { id: 104, content: "Fix IE bugs" },

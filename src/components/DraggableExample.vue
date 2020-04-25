@@ -1,13 +1,15 @@
 <template>
   <div class="wrapper">
     <h2 class="title">Draggable example</h2>
+    <button @click="sort">
+      To original order
+    </button>
     <draggable v-model="taskList" class="bigger-area">
       <transition-group name="list-complete">
         <div
           v-for="task in taskList"
           :key="task.id"
           class="drag-item flex flex-justify-betweeen"
-          @dragend="log('a')"
         >
           <strong>[IT-{{ task.id }}]</strong> {{ task.content }}
         </div>
@@ -25,7 +27,8 @@ export default {
   data() {
     return {
       exampleList: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
-      taskList
+      taskList,
+      originalTaskList: taskList
     };
   },
   components: {
@@ -34,21 +37,43 @@ export default {
   methods: {
     log: function(...e) {
       console.log(...e);
+    },
+    sort() {
+      this.taskList = this.originalTaskList;
+      // console.log(this.taskList);
     }
   }
+  // watch: {
+  //   taskList: function(newList, oldList) {
+  //     console.log(newList);
+  //     console.log(oldList);
+  //   }
+  // }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .wrapper {
-  width: 20vw;
+  width: auto;
   /* margin: 0 auto; */
   height: auto;
 }
+/* 
+.row {
+  display: flex;
+  width: 100vw;
+}
+
+.row-data {
+  width: 300px;
+  background: #ccc;
+} */
+
 .title {
   margin-bottom: 2em;
 }
+
 .bigger-area > span {
   /* min-height: 90vh; */
   /* display: block; */
