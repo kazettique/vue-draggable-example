@@ -2,10 +2,17 @@
   <div class="board">
     <Column
       :key="columnIndex"
-      v-for="(taskList, columnIndex) in initialTaskLists"
+      v-for="(taskList, columnIndex) in taskLists"
       :columnTitle="columnTitle(columnIndex)"
+      :class="{ isDragging: drag }"
     >
-      <Draggable class="draggable" :list="taskList" group="columnGroup">
+      <Draggable
+        class="draggable"
+        :list="taskList"
+        group="columnGroup"
+        @start="drag = true"
+        @end="drag = false"
+      >
         <Task :key="task.id" v-for="task in taskList" :task="task" />
       </Draggable>
     </Column>
@@ -27,7 +34,8 @@ export default {
   },
   data() {
     return {
-      initialTaskLists
+      taskLists: initialTaskLists,
+      drag: Boolean
     };
   },
   methods: {
@@ -38,6 +46,11 @@ export default {
       return GROUP_TYPE.TASK;
     }
   }
+  // watch: {
+  //   drag: function(drag) {
+  //     return console.log(drag);
+  //   }
+  // }
 };
 </script>
 
@@ -61,5 +74,9 @@ export default {
   background: lightgreen;
   display: inline-block;
   min-height: 30px;
+}
+
+.isDragging {
+  border: 1px dashed rgb(042, 105, 199);
 }
 </style>
